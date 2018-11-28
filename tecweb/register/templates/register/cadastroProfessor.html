@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cadastro Professor</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" type="text/css" href="{% static 'bulma.css'%}">
+  <link rel="stylesheet" type="text/css" href="{% static 'bulma.min.css'%}">
+  <link rel="stylesheet" type="text/css" href="{% static 'cadastro.css'%}">
+  <link href="https://fonts.googleapis.com/css?family=Orbitron|VT323" rel="stylesheet">
+  <script src="../../../static/cadastroProfessor.js"></script>
+
+
+</head>
+<body>
+  <header>
+    <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand is-transparent">
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item"><span class="isWhite">Home</span></a>
+          <a class="navbar-item"><span class="isWhite">Cursos</span></a>
+          <a class="navbar-item"><span class="isWhite">Sobre</span></a>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link"><span class="isWhite">Cadastros</span></a>
+
+            <div class="navbar-dropdown">
+              <a class="navbar-item" href="/register/cadastroAluno/">
+                  <span class="isWhite">Cadastro de Alunos</span>
+              </a>
+              <a class="navbar-item" href="/register/cadastroProfessor/">
+                  <span class="isWhite">Cadastro de Professores</span>
+              </a>
+              <a class="navbar-item" href="/register/cadastroDisciplina/">
+                  <span class="isWhite">Cadastro de Disciplinas</span>
+              </a>
+              <hr class="navbar-divider">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+              <a class="button is-info">
+                Log in
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1 class="isWhite">Cadastro de Professores</h1>
+    <p class="isWhite">Campos com <span class="red"> * </span class="red"> são obrigatórios!</p>
+    <form onsubmit="return notNull()" class="myform" method="post">
+      <label for="name" class="isWhite"><span class="red"> * </span>Nome</label></br>
+      <input class="input is-rounded is-info" class="sameInput" type="text" name="name" id="name" maxlength="100"></br>
+
+      <label for="nickname" class="isWhite"><span class="red"> * </span>Apelido</label></br>
+      <input class="input is-rounded is-info" class="sameInput" type="text" name="nickname" id="nickname" maxlength="50"></br>
+
+      <label for="user" class="isWhite"><span class="red"> * </span>Usuário</label></br>
+      <input class="input is-rounded is-info" class="sameInput" type="text" name="user" id="user" minlength="3" maxlength="30"></br>
+
+      <label for="birthdate" class="isWhite"><span class="red"> * </span>Data de Nascimento</label></br>
+      <input class="input is-rounded is-info" type="date" name="birthdate" id="birthdate" maxlength="10"></br>
+
+      <label for="email" class="isWhite"><span class="red"> * </span>E-mail</label></br>
+      <input class="input is-rounded is-info" type="email" name="email" id="email" maxlength="100"></br>
+
+      <label for="cel" class="isWhite">Celular</label></br>
+      <input class="input is-rounded is-info" type="text" name="cel" id="cel" maxlength="20"></br>
+
+      <label for="pic" class="isWhite">Foto</label></br>
+      <input type="file" id="pic" accept="image/*"></br>
+
+      <button type="submit" class="button is-rounded is-info" class="isWhite">Enviar</button>
+    </form>
+
+
+  </div>
+
+<!--   INSERIR LABEL DE FOTO AQUI MAXLENGTH 225-->
+
+
+</body>
+</html>

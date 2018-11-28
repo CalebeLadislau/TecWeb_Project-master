@@ -1,0 +1,73 @@
+body {
+  background-color: #111111;
+}
+
+html {
+  background-color: #111111;
+}
+h1 {
+  font-size: 35px;
+  text-align: center;
+}
+
+button {
+  padding-top: 10px;
+}
+
+.red {
+  color: red;
+}
+
+.isWhite {
+  color: #e8e8e8;
+}
+
+p {
+  font-size: 12px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#name, #email, #nickname, #birthdate, #cel, #user, #ra{
+  background-color: #111111;
+}
+
+.button.is-info {
+  margin-top: 10px;
+}
+
+.navbar {
+  background-color: black;
+  min-height: 4.25rem;
+  margin-bottom: 20px;
+}
+
+.navbar-item, .navbar-dropdown{
+  background-color: black;
+}
+
+.container {
+  align-content: center;
+}
+
+.infosize {
+  width: 60px;
+}
+
+.is-info {
+  background-color: #3da7ff;
+}
+
+.input.is-info {
+  border-color: #3da7ff;
+  color: #e8e8e8;
+
+}
+
+.myform {
+  margin: 10px 20%;
+}
+
+input {
+  margin-bottom: 2%;
+}

@@ -1,0 +1,318 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Disciplinas</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'bulma.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'bulma.min.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'cadastroDisciplina.css'%}">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron|VT323" rel="stylesheet">
+    <script src="../../../static/cadastroProfessor.js"></script>
+</head>
+
+<body>
+
+<!-- Start: Menu de Navegação-->
+<header>
+    <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand is-transparent">
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item"><span class="isWhite">Home</span></a>
+                <a class="navbar-item"><span class="isWhite">Cursos</span></a>
+                <a class="navbar-item"><span class="isWhite">Sobre</span></a>
+
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link"><span class="isWhite">Cadastros</span></a>
+
+                    <div class="navbar-dropdown">
+              <a class="navbar-item" href="/register/cadastroAluno/">
+                  <span class="isWhite">Cadastro de Alunos</span>
+              </a>
+              <a class="navbar-item" href="/register/cadastroProfessor/">
+                  <span class="isWhite">Cadastro de Professores</span>
+              </a>
+              <a class="navbar-item" href="/register/cadastroDisciplina/">
+                  <span class="isWhite">Cadastro de Disciplinas</span>
+              </a>
+              <hr class="navbar-divider">
+            </div>
+                </div>
+            </div>
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a class="button is-info">
+                            Log in
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+<main>
+    <div class="container">
+        <section>
+
+            <h1 class="isWhite">Cadastro de Disciplinas</h1>
+            <p class="isWhite">Campos com <span class="red"> * </span class="red"> são obrigatórios!</p>
+            <br>
+
+
+            <form onsubmit="return notNull()" class="myform" method="post">
+
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label for="name" class="label isWhite" ><span class="red"> * </span>Nome</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="">
+                                <p class="control is-expanded">
+                                    <input type="text" name="name" id="inputName" required="required" maxlength="50" class="input is-rounded is-info" class="sameInput">
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label for="date" class="label isWhite" id="Data"><span class="red"> * </span>Data</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="">
+                                <p class="control is-expanded">
+                                    <input type="date" name="date" id="inputData" required="required" maxlength="10" class="input is-rounded is-info" class="sameInput">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+
+                        <label for="name" class="label isWhite" id="select"><span class="red"> * </span>Status</label>
+                    </div>
+
+                    <div class="field-body">
+                        <div class="field is-narrow">
+                            <div class="select is-rounded is-info semCor">
+                                <select name="select-status" id="select-status">
+                                    <option value="Escolha 1">Escolha 1</option>
+                                    <option value="Escolha 1">Escolha 2</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label for="texto" class="label isWhite" id="planoEnsino">Plano de Ensino</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control ">
+                                <textarea class="textarea is-info " name="txtPlanoEnsino" id="txtPlanoEnsino" rows="3" cols="33" maxlength="200" wrap="hard"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label for="texto" class="label isWhite" id="CargaHoraria" ><span class="red"> * </span>Carga Horária</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="">
+                                <p class="control is-expanded">
+                                    <input  type="text" name="cargaHoraria" id="inputCargaHoraria" required="required" minlength="3" class="input is-rounded is-info" class="sameInput">
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label for="texto" class="label isWhite" id="Competencias">Competências</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <textarea class="textarea is-info" name="Competencias" id="txtCompetencias" rows="3" cols="33" maxlength="300" wrap="hard"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label for="texto" class="label isWhite" id="Habilidade">Habilidades</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <textarea class="textarea is-info" name="Habilidade" id="txtHabilidade" rows="3" cols="33" maxlength="300" wrap="hard"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label for="texto" class="label isWhite" id="Ementa">Ementa</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <textarea class="textarea is-info" name="Ementa" id="txtEmenta" rows="3" cols="33" maxlength="300" wrap="hard"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label for="texto" class="label isWhite" id="Programatico">Conteúdo Programático</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <textarea  class="textarea is-info" name="Programatico" id="txtProgramatico" rows="3" cols="33" maxlength="300" wrap="hard"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label for="texto" class="label isWhite" id="BibliografiaBasica">Bibliografia Básica</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <textarea class="textarea is-info" name="BibliografiaBasica" id="txtBibliografiaBasica" rows="3" cols="33" maxlength="300" wrap="hard"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label for="texto" class="label isWhite" id="BibliografiaComplementar">Bibliografia Complementar</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <textarea class="textarea is-info" name="BibliografiaComplementar" id="txtBibliografiaComplementar" rows="3" cols="33" maxlength="300" wrap="hard"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label for="percentualPratico" class="label isWhite" id="PercentualPratico"><span class="red"> * </span>Percentual Prático</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="">
+                                <p class="control is-expanded">
+                                    <input type="text" name="percentualPratico" id="inputPercentualPratico" required="required" maxlength="3" class="input is-rounded is-info" class="sameInput">
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label for="percentualTeorico" class="label isWhite" id="PercentualToerico"><span class="red"> * </span>Percentual Teórico</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="">
+                                <p class="control is-expanded">
+                                    <input type="text" name="percentualTeorico" id="inputPercentualToerico" required="required" maxlength="3" class="input is-rounded is-info" class="sameInput">
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+
+                        <label for="name" class="label isWhite" id="nome_cood"><span class="red"> * </span>Nome do Coordenados</label>
+                    </div>
+
+                    <div class="field-body">
+                        <div class="field is-narrow">
+                            <div class="select is-rounded is-info semCor">
+                                <select name="select-option" id="">
+                                    <option value="Escolha 1">Escolha 1</option>
+                                    <option value="Escolha 1">Escolha 2</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label">
+                        <!-- Left empty for spacing -->
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <button class="button is-info is-rounded">
+                                    Enviar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+
+            </form>
+
+
+        </section>
+    </div>
+</main>
+
+<script src="js/cadastroDisciplina.js"></script>
+<script>
+        // document.getElementById('inputName').focus();
+</script>
+</body>
+</html>
